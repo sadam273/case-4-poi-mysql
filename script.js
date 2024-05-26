@@ -9,6 +9,8 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 const modal = document.querySelector("#modal");
 const simpan = document.querySelector("#simpan");
 const cancel = document.querySelector("#cancel");
+const longitude = document.querySelector("#longitude");
+const latittude = document.querySelector("#latittude");
 
 cancel.addEventListener("click", () => {
   modal.close();
@@ -28,5 +30,7 @@ map.on("click", function (e) {
     .bindPopup("Coordinates: " + lat + ", " + lng)
     .openPopup();
 
+  longitude.innerHTML = lng;
+  latittude.innerHTML = lat;
   modal.showModal();
 });

@@ -17,10 +17,19 @@
     <div id="map"></div>
     
     <dialog id="modal">
-        <h2>CEK!</h2>
-        <p>Lorem ipsum dolor sit amet </p>
-        <button id="cancel">Cancel</button>
-        <button id="simpan">Simpan</button>
+        <h2>Simpan ke database?</h2>
+        <p>Longitude: <div id="longitude"></div></p>
+        <p >Latitude: <div id="latittude"></div></p>
+        <form class="form" method="dialog">
+            <label for="nama"> Nama Lokasi</label>
+            <input type="text" name="nama"> <br>
+            <label for="nama"> Deskripsi Lokasi</label>
+            <input type="text" name="deskripsi"> <br>
+            <button id="cancel">Cancel</button>
+            <button id="simpan" type="submit">Simpan</button>
+        </form>
+        
+
     </dialog>
     
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
