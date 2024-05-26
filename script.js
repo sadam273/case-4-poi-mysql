@@ -6,6 +6,14 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
+const modal = document.querySelector("#modal");
+const simpan = document.querySelector("#simpan");
+const cancel = document.querySelector("#cancel");
+
+cancel.addEventListener("click", () => {
+  modal.close();
+});
+
 map.on("click", function (e) {
   // Get the latitude and longitude from the event object
   var lat = e.latlng.lat;
@@ -19,4 +27,6 @@ map.on("click", function (e) {
     .addTo(map)
     .bindPopup("Coordinates: " + lat + ", " + lng)
     .openPopup();
+
+  modal.showModal();
 });

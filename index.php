@@ -9,20 +9,19 @@
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
 
-    <style>
-        #map {
-            height: 600px;
-            width: 100%;
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
 
 </head>
 
 <body>
     <div id="map"></div>
     
-
+    <dialog id="modal">
+        <h2>CEK!</h2>
+        <p>Lorem ipsum dolor sit amet </p>
+        <button id="cancel">Cancel</button>
+        <button id="simpan">Simpan</button>
+    </dialog>
     
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
