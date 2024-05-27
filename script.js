@@ -11,6 +11,8 @@ const simpan = document.querySelector("#simpan");
 const cancel = document.querySelector("#cancel");
 const longitude = document.querySelector("#longitude");
 const latittude = document.querySelector("#latittude");
+var lat;
+var lng;
 
 cancel.addEventListener("click", () => {
   modal.close();
@@ -19,8 +21,8 @@ cancel.addEventListener("click", () => {
 // Event yang terjadi kalo map diklik
 map.on("click", function (e) {
   // Get the latitude and longitude from the event object
-  var lat = e.latlng.lat;
-  var lng = e.latlng.lng;
+  lat = e.latlng.lat;
+  lng = e.latlng.lng;
 
   // Output the coordinates to the console
   console.log("Coordinates: " + lat + ", " + lng);
@@ -42,10 +44,14 @@ simpan.addEventListener("click", (e) => {
 
   const nama = document.getElementById("nama").value;
   const deskripsi = document.getElementById("deskripsi").value;
+  const koorLat = lat;
+  const koorLong = lng;
 
   const data = {
     nama: nama,
     deskripsi: deskripsi,
+    latitude: koorLat,
+    longitude: koorLong,
   };
 
   fetch("proses.php", {
