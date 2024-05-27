@@ -16,6 +16,7 @@ cancel.addEventListener("click", () => {
   modal.close();
 });
 
+// Event yang terjadi kalo map diklik
 map.on("click", function (e) {
   // Get the latitude and longitude from the event object
   var lat = e.latlng.lat;
@@ -33,4 +34,39 @@ map.on("click", function (e) {
   longitude.innerHTML = lng;
   latittude.innerHTML = lat;
   modal.showModal();
+});
+
+//Menjalankan fungsi asyncronous ketika simpan di klik
+simpan.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const nama = document.getElementById("nama").value;
+  const deskripsi = document.getElementById("deskripsi").value;
+
+  const data = {
+    nama: nama,
+    deskripsi: deskripsi,
+  };
+
+  fetch("proses.php", {
+    method: "POST", // Metode HTTP yang digunakan
+    headers: {
+      "Content-Type": "application/json", // Jenis konten yang dikirim
+    },
+    body: JSON.stringify(data), // Konversi objek data menjadi JSON
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("ERROR");
+      }
+      return response.text();
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error("Terjadi kesalahan: ", data);
+    });
+
+  modal.close();
 });

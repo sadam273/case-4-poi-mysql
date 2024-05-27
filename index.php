@@ -20,11 +20,11 @@
         <h2>Simpan ke database?</h2>
         <p>Longitude: <div id="longitude"></div></p>
         <p >Latitude: <div id="latittude"></div></p>
-        <form class="form" method="dialog">
+        <form class="form" method="post">
             <label for="nama"> Nama Lokasi</label>
-            <input type="text" name="nama"> <br>
+            <input type="text" name="nama" id="nama"> <br>
             <label for="nama"> Deskripsi Lokasi</label>
-            <input type="text" name="deskripsi"> <br>
+            <input type="text" name="deskripsi" id="deskripsi"> <br>
             <button id="cancel">Cancel</button>
             <button id="simpan" type="submit">Simpan</button>
         </form>
