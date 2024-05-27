@@ -22,6 +22,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $longitude = $data['longitude'] ?? '';
     $latitude = $data['latitude'] ?? '';
 
+    //Masukkan nilai di atas ke database
+    if($nama && $deskripsi && $longitude && $latitude){
+        $sql1 = "insert into poi_data(KOORDINAT_POSISI, NAMA, DESKRIPSI)  values (POINT($longitude, $latitude), '$nama', '$deskripsi')";
+        $q1 = mysqli_query($kon, $sql1); 
+
+    }
+
 
 
     
