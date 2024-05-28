@@ -55,7 +55,7 @@ simpan.addEventListener("click", (e) => {
     longitude: koorLong,
   };
 
-  fetch("proses.php", {
+  fetch("create.php", {
     method: "POST", // Metode HTTP yang digunakan
     headers: {
       "Content-Type": "application/json", // Jenis konten yang dikirim
@@ -96,12 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         data.forEach((element) => {
-          L.marker([element.longitude, element.latitude])
-            .addTo(map)
-            .bindPopup(
-              "Coordinates: " + element.longitude + ", " + element.latitude
-            )
-            .openPopup();
+          L.marker([element.longitude, element.latitude]).addTo(map);
         });
       })
       .catch((error) => {
