@@ -1,14 +1,5 @@
 <?php
-
-$host = "localhost";
-$user="root";
-$password="rahasia";
-$db ="poi";
-
-$kon = mysqli_connect($host, $user, $password, $db);
-if(!$kon){
-    die("Koneksi gagal: " . mysqli_connect_error());
-}
+require "koneksi.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Ambil konten dari body permintaan

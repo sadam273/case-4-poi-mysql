@@ -77,3 +77,41 @@ simpan.addEventListener("click", (e) => {
 
   modal.close();
 });
+
+//buat read bosque
+document.addEventListener("DOMContentLoaded", function () {
+  function fetchDataAndAddMarkers() {
+    fetch("read.php")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok " + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        map.eachLayer(function (layer) {
+          if (layer instanceof L.Marker) {
+            map.removeLayer(layer);
+          }
+        });
+
+        data.forEach((element) => {
+          L.marker([element.longitude, element.latitude])
+            .addTo(map)
+            .bindPopup(
+              "Coordinates: " + element.longitude + ", " + element.latitude
+            )
+            .openPopup();
+        });
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+      });
+  }
+
+  // panggil fetch pertamaaaa
+  fetchDataAndAddMarkers();
+
+  //panggil terus tiap detik
+  setInterval(fetchDataAndAddMarkers, 1000);
+});
